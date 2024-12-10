@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-    <title>말씀 뽑기</title>
+    <title>새해 말씀 뽑기</title>
     <!-- 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <!-- Noto Sans KR & Gowun Batang -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Gowun+Batang&display=swap" rel="stylesheet">
     <!-- Pretendard -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css" integrity="sha384-i1A1F2CJGLfwHeqQrum7Ab8xCDfH80Q5anp/YzozS4+STEz0Ee06lGZoUnAMfmvJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css" crossorigin="anonymous">
     <!-- Kakao SDK -->
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
@@ -20,20 +20,30 @@
       <!-- 첫 페이지 -->
       <div id="main-page" class="page visible">
         <div class="intro-container">
-          <h1>경일교회 새해 말씀 뽑기</h1>
-          <p class="subtitle">새해에 당신에게 주시는 따스한 말씀을<br>마음 깊이 품어보세요</p>
+          <h1>새해 말씀 뽑기</h1>
+          <p class="subtitle">당신에게 주시는 따스한 말씀을<br>마음 깊이 품어보세요</p>
           <button id="randomButton" class="primary-btn">말씀 뽑기</button>
         </div>
-        <div class="footer-link">
-          <a href="https://example.com" target="_blank" rel="noopener noreferrer">개발자 소개</a>
+        <!-- 플로팅 액션 버튼 (서비스/개발자 소개) -->
+        <div class="fab-container">
+          <button class="fab-btn" id="fabMenuBtn" title="더보기">⋮</button>
+          <div class="fab-menu">
+            <a href="https://example.com/service" target="_blank" rel="noopener noreferrer" class="fab-item" title="서비스 소개">🌊<span class="fab-tooltip">서비스 소개</span></a>
+            <a href="https://example.com/developer" target="_blank" rel="noopener noreferrer" class="fab-item" title="개발자 소개">👤<span class="fab-tooltip">개발자 소개</span></a>
+          </div>
         </div>
       </div>
 
       <!-- 로딩 페이지 -->
       <div id="loading-page" class="page hidden">
         <div class="loading-container">
-          <h2>내게 맞는 말씀을 찾는 중...</h2>
-          <div class="warm-loader"></div>
+          <h2 class="loading-text">내게 맞는 말씀을 찾는 중...</h2>
+          <div class="floating-loader">
+            <div class="bubble bubble1"></div>
+            <div class="bubble bubble2"></div>
+            <div class="bubble bubble3"></div>
+            <div class="bubble bubble4"></div>
+          </div>
         </div>
       </div>
 

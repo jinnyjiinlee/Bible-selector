@@ -15,8 +15,15 @@ const backButton = document.getElementById("backButton");
 const saveButton = document.getElementById("saveButton");
 const kakaoButton = document.getElementById("kakaoButton");
 const verseText = document.getElementById("verseText");
+const fabMenuBtn = document.getElementById("fabMenuBtn");
+const fabMenu = document.querySelector(".fab-menu");
 
 let currentVerse = null;
+
+// FAB 메뉴 토글
+fabMenuBtn.addEventListener("click", () => {
+  fabMenu.classList.toggle("open");
+});
 
 function showRandomVerse() {
   const randomIndex = Math.floor(Math.random() * verses.length);
@@ -26,7 +33,7 @@ function showRandomVerse() {
     <div class="tag-card fade-in" id="verseCard">
       <div class="tag-top">
         <div class="tag-hole"></div>
-        <p class="tag-title">오늘 당신에게 주신 말씀</p>
+        <p class="tag-title">2 0 2 5   Y E A R</p>
       </div>
       <div class="tag-body">
         <p class="tag-verse">${currentVerse.text}</p>
@@ -35,12 +42,29 @@ function showRandomVerse() {
     </div>
   `;
 
+  // 컨페티 효과
   setTimeout(() => {
     loadingPage.classList.remove("visible");
     loadingPage.classList.add("hidden");
     resultPage.classList.remove("hidden");
     resultPage.classList.add("visible");
-  }, 2000);
+    triggerConfetti();
+  }, 4000); // 4초 대기
+}
+
+// 컨페티 애니메이션
+function triggerConfetti() {
+  const confettiCount = 30;
+  for(let i = 0; i < confettiCount; i++){
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * 100 + '%';
+    document.body.appendChild(confetti);
+
+    setTimeout(() => {
+      confetti.remove();
+    }, 3000);
+  }
 }
 
 randomButton.addEventListener("click", () => {
@@ -60,7 +84,12 @@ backButton.addEventListener("click", () => {
 
 saveButton.addEventListener("click", () => {
   const verseCard = document.getElementById("verseCard");
-  html2canvas(verseCard).then(canvas => {
+  html2canvas(verseCard, { 
+    scale: 3, 
+    backgroundColor: null, 
+    useCORS: true,
+    foreignObjectRendering: true
+  }).then(canvas => {
     const link = document.createElement('a');
     link.download = '말씀.png';
     link.href = canvas.toDataURL("image/png");
