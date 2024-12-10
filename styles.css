@@ -1,0 +1,291 @@
+html, body {
+  margin: 0; 
+  padding: 0; 
+  height: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  background: linear-gradient(135deg, #FFE4E1 20%, #FFDAB9 90%);
+  color: #333;
+  /* 은은한 노이즈 텍스처 */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='64' height='64' viewBox='0 0 64 64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='64' height='64' fill='%23ffffff'/%3E%3Cpath d='M32 1H1V32H32V1Z' fill='%23f2f2f2'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+#app {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.page {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visible {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* 메인 페이지 */
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background: #fff9f5dd;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #444;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.4;
+  max-width: 300px;
+}
+
+.footer-link {
+  margin-top: 20px;
+}
+
+.footer-link a {
+  font-size: 0.9rem;
+  color: #8d4a43;
+  text-decoration: none;
+  border-bottom: 1px solid #8d4a43;
+  transition: color 0.3s;
+}
+
+.footer-link a:hover {
+  color: #A35C52;
+}
+
+/* 버튼 스타일 */
+.primary-btn {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  background-color: #d18c69;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 700;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  font-family: 'Pretendard', sans-serif;
+}
+
+.primary-btn:hover {
+  background-color: #c0725e;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* 로딩 페이지 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff9f5dd;
+  border-radius: 20px;
+  padding: 40px 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.loading-container h2 {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #555;
+}
+
+.warm-loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ffe0d5;
+  border-top: 4px solid #d18c69;
+  border-radius: 50%;
+  animation: breathe 1.5s ease-in-out infinite;
+  margin: 20px auto;
+}
+
+@keyframes breathe {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* 결과 페이지 */
+#result-page h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #444;
+  font-weight: 700;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.tag-card {
+  width: 100%;
+  max-width: 280px;
+  background: #fffefa;
+  border-radius: 15px;
+  margin: 0 auto 30px auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.tag-top {
+  background: #f7e5da;
+  border-radius: 15px 15px 0 0;
+  padding: 30px 20px 20px;
+  position: relative;
+  text-align: center;
+}
+
+.tag-hole {
+  width: 12px;
+  height: 12px;
+  background: #eeded3;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: inset 0 0 1px rgba(0,0,0,0.2);
+}
+
+.tag-title {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #444;
+  font-weight: 700;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.tag-body {
+  padding: 30px 20px 40px;
+  position: relative;
+}
+
+.tag-verse {
+  font-family: 'Gowun Batang', serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.tag-reference {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #7c594c;
+}
+
+/* 카드 페이드인 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 액션바 스타일 */
+.action-bar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  background-color: #f1e2da;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  text-decoration: none;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.action-btn img {
+  margin-right: 6px;
+  width: 20px;
+  height: 20px;
+}
+
+.action-btn span {
+  color: #333;
+}
+
+.action-btn:hover {
+  background-color: #e6d8d0;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .tag-verse {
+    font-size: 1.05rem;
+  }
+
+  .action-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
