@@ -49,7 +49,7 @@ function showRandomVerse() {
     resultPage.classList.remove("hidden");
     resultPage.classList.add("visible");
     triggerConfetti();
-  }, 4000); // 4초 대기
+  }, 6000); // 초 대기
 }
 
 // 컨페티 애니메이션
